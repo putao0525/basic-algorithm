@@ -4,7 +4,8 @@ func QuickSort(arr []int, startIndex, endIndex int) {
 	if startIndex >= endIndex {
 		return
 	}
-	pivotIndex := partition(arr, startIndex, endIndex)
+	//pivotIndex := partition(arr, startIndex, endIndex)
+	pivotIndex := partitionV2(arr, startIndex, endIndex)
 	QuickSort(arr, startIndex, pivotIndex-1)
 	QuickSort(arr, pivotIndex+1, endIndex)
 }
@@ -12,6 +13,7 @@ func QuickSort(arr []int, startIndex, endIndex int) {
 // 随机的选择一个元算， 比这个元素的大的，放在右边，比这个元素小的，放在左边
 // 返回这个元素的位置
 // 重复这个操作， 最终有序
+// 双边快速排序
 func partition(arr []int, startIndex, endIndex int) int {
 	pivot := arr[startIndex] //备份第一元素的地址 ，
 	left := startIndex
@@ -29,4 +31,19 @@ func partition(arr []int, startIndex, endIndex int) int {
 	//此时，左右相等，存在一个重复的元素
 	arr[left] = pivot //用备份的元素覆盖重复的元素
 	return left
+}
+
+// 单边快速排序
+func partitionV2(arr []int, startIndex, endIndex int) int {
+	pivot := arr[startIndex]
+	mark := startIndex
+	for i := startIndex + 1; i <= endIndex; i++ {
+		if arr[i] < pivot {
+			mark++
+			arr[i], arr[mark] = arr[mark], arr[i]
+		}
+	}
+	arr[startIndex] = arr[mark]
+	arr[mark] = pivot
+	return mark
 }
