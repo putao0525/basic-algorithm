@@ -1,9 +1,6 @@
 package sort
 
-/**
-冒泡排序
-*/
-
+// BubbleSort 冒泡排序
 func BubbleSort(arr []int) {
 	n := len(arr)
 	//为啥是n-1?
@@ -15,6 +12,34 @@ func BubbleSort(arr []int) {
 		for j := 0; j < n-i-1; j++ {
 			if arr[j] >= arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]
+				isSorted = false
+			}
+		}
+		if isSorted {
+			return
+		}
+	}
+}
+
+// CockTailSort 鸡尾酒排序
+func CockTailSort(arr []int) {
+	n := len(arr)
+	//为啥外层 n/2 内层一次 ，先从左往右冒泡，然后，从右往左冒泡
+	for i := 0; i < n/2; i++ {
+		isSorted := true //如果某一轮已经完全有序了，下一轮就不需要执行了
+		for j := i; j < n-i-1; j++ {
+			if arr[j] >= arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+				isSorted = false
+			}
+		}
+		if isSorted {
+			return
+		}
+		isSorted = true
+		for j := n - i - 1; j > i; j-- {
+			if arr[j-1] >= arr[j] {
+				arr[j-1], arr[j] = arr[j], arr[j-1]
 				isSorted = false
 			}
 		}
