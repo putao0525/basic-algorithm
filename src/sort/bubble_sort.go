@@ -11,10 +11,15 @@ func BubbleSort(arr []int) {
 	for i := 0; i < n-1; i++ {
 		//为啥是n-i-1?
 		//8个元素需要比较7次，7个元素需要比较6次，在减去已经冒泡好的数据
+		isSorted := true //如果某一轮已经完全有序了，下一轮就不需要执行了
 		for j := 0; j < n-i-1; j++ {
 			if arr[j] >= arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]
+				isSorted = false
 			}
+		}
+		if isSorted {
+			return
 		}
 	}
 }
