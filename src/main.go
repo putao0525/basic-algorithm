@@ -6,10 +6,11 @@ import (
 )
 
 func testSort() {
-	arr := []int{5, 8, 6, 3, 9, 2, 1, 7}
+	arr := []int{5, 8, 6, 3, 9, 2, 1, 7, 4}
 	//sort.BubbleSort(arr)
 	//arr = []int{2, 3, 4, 5, 6, 7, 8, 1}
-	sort.CockTailSort(arr)
+	//sort.CockTailSort(arr)
+	sort.QuickSort(arr, 0, len(arr)-1)
 	fmt.Printf("%v\n", arr)
 }
 
