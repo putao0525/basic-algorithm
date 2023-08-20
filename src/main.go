@@ -10,7 +10,8 @@ func testSort() {
 	//sort.BubbleSort(arr)
 	//arr = []int{2, 3, 4, 5, 6, 7, 8, 1}
 	//sort.CockTailSort(arr)
-	sort.QuickSort(arr, 0, len(arr)-1)
+	//sort.QuickSort(arr, 0, len(arr)-1)
+	sort.HeapSort(arr)
 	fmt.Printf("%v\n", arr)
 }
 
