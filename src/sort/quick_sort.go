@@ -9,8 +9,11 @@ func QuickSort(arr []int, startIndex, endIndex int) {
 	QuickSort(arr, pivotIndex+1, endIndex)
 }
 
+// 随机的选择一个元算， 比这个元素的大的，放在右边，比这个元素小的，放在左边
+// 返回这个元素的位置
+// 重复这个操作， 最终有序
 func partition(arr []int, startIndex, endIndex int) int {
-	pivot := arr[startIndex] //备份第一元素的地址
+	pivot := arr[startIndex] //备份第一元素的地址 ，
 	left := startIndex
 	right := endIndex
 	for left != right { //相当于while循环
