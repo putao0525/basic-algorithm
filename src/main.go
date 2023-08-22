@@ -13,8 +13,9 @@ func testSort() {
 	//sort.QuickSort(arr, 0, len(arr)-1)
 	//sort.HeapSort(arr)
 	//fmt.Printf("%v\n", search.BinarySearch(arr, 3))
-	sort.SelectSort(arr)
-	fmt.Printf("%v\n", arr)
+	//sort.SelectSort(arr)
+	fmt.Printf("%v\n", sort.MergeSort(arr))
+	//fmt.Printf("%v\n", arr)
 }
 
 func main() {
