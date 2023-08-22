@@ -5,7 +5,7 @@ func MergeSort(arr []int) []int {
 		return arr
 	}
 	mid := len(arr) / 2
-	left := MergeSort(arr[:mid])
+	left := MergeSort(arr[:mid]) //左边一半的元素，左闭右开
 	right := MergeSort(arr[mid:])
 	return merge(left, right)
 }
@@ -22,7 +22,7 @@ func merge(left, right []int) []int {
 			j++
 		}
 	}
-	result = append(result, left[i:]...)
+	result = append(result, left[i:]...) //放入左边剩余的元素
 	result = append(result, right[j:]...)
 	return result
 }
